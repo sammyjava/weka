@@ -23,16 +23,15 @@
 #                              SMO and kernel parameters
 #  -tf,--testfile <arg>        test data file in ARFF format
 
-PREFIX=$1
-C=$2
-gamma=$3
+TRAINFILE=$1
+TESTFILE=$2
 
-TRAINFILE=$PREFIX.train.arff
-TESTFILE=$PREFIX.test.arff
+C=$3
+gamma=$4
 
 KERNEL=RBF
 NUMOPTIMIZE=25
 
 echo "WekaSMO test/train optimization on $TRAINFILE and $TESTFILE"
 java -server -cp "../weka/build/install/weka/lib/*" org.ncgr.weka.WekaSMO --optimize --arfffile=$TRAINFILE --testfile=$TESTFILE \
-     --kernel=$KERNEL --complexity=$C --kernelparam=$gamma --numoptimize=$NUMOPTIMIZE $4
+     --kernel=$KERNEL --complexity=$C --kernelparam=$gamma --numoptimize=$NUMOPTIMIZE $5

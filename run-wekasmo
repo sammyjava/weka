@@ -18,12 +18,11 @@
 #                              SMO and kernel parameters
 #  -tf,--testfile <arg>        test data file in ARFF format
 
-PREFIX=$1
-C=$2
-gamma=$3
+TRAINFILE=$1
+TESTFILE=$2
 
-TRAINFILE=$PREFIX.train.arff
-TESTFILE=$PREFIX.test.arff
+C=$3
+gamma=$4
 
 echo "WekaSMO train/test on $TRAINFILE/$TESTFILE with C=$C and gamma=$gamma"
 java -server -cp "../weka/build/install/weka/lib/*" org.ncgr.weka.WekaSMO --test --arfffile=$TRAINFILE --testfile=$TESTFILE --complexity=$C --gamma=$gamma

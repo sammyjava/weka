@@ -19,10 +19,8 @@
 #  -test,--test                  run train/test on arfffile/testfile
 #  -tf,--testfile <arg>          test data file in ARFF format
 
-PREFIX=$1
-
-TRAINFILE=$PREFIX.train.arff
-TESTFILE=$PREFIX.test.arff
+TRAINFILE=$1
+TESTFILE=$2
 
 ## parameters
 NUMITERATIONS=100
@@ -31,4 +29,4 @@ NUMOPTIMIZE=25
 
 echo "WekaRandomForest test/train optimization on $TRAINFILE and $TESTFILE"
 java -server -cp "../weka/build/install/weka/lib/*" org.ncgr.weka.WekaRandomForest --optimize --arfffile=$TRAINFILE --testfile=$TESTFILE \
-     --numiterations=$NUMITERATIONS --numfeatures=$NUMFEATURES --numoptimize=$NUMOPTIMIZE $2 $3
+     --numiterations=$NUMITERATIONS --numfeatures=$NUMFEATURES --numoptimize=$NUMOPTIMIZE

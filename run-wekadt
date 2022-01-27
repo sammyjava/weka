@@ -1,0 +1,17 @@
+#!/bin/bash
+# usage: WekaDecisionTable
+#  -a,--arfffile <arg>    ARFF input file (required)
+#  -cv,--crossvalidate    run cross-validation
+#  -D,--debug             toggle on debug mode [false]
+#  -k,--kfold <arg>       cross-validation k-fold [10]
+#  -test,--test           run train/test on datasets
+#  -tf,--testfile <arg>   test data file in ARFF format
+
+TRAINFILE=$1
+TESTFILE=$2
+
+echo "##########"
+echo "########## Weka DecisionTable train/test on $TRAINFILE and $TESTFILE"
+echo "##########"
+
+java -server -cp "/home/shokin/java/weka/build/install/weka/lib/*:/home/shokin/java/weka/lib/native_ref-java-1.2-SNAPSHOT.jar:/home/shokin/java/weka/lib/native_system-java-1.2-SNAPSHOT.jar" org.ncgr.weka.WekaDecisionTable --test --arfffile=$TRAINFILE --testfile=$TESTFILE

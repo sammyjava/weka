@@ -12,9 +12,7 @@
 #  -ng,--ngridsearch <arg>       set number of cases+controls (equal) to use
 #                                in grid search [0=all]
 
-PREFIX=$1
-
-TRAINFILE=$PREFIX.train.arff
+TRAINFILE=$1
 
 KFOLD=10
 NGRIDSEARCH=0
